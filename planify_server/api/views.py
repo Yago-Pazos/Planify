@@ -14,6 +14,8 @@ def register(request):
     password = data.get('password')
     if not (name and email and password):
         return JsonResponse({'error':'Missing fields'}, status=400)
+    if len(password) < 6:
+        return JsonResponse({'error': 'Password must be at least 6 characters'}, status=400)
     if User.objects.filter(email=email).exists():
         return JsonResponse({'error':'Email exists'}, status=400)
 
