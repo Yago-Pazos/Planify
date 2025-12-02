@@ -4,7 +4,7 @@ import secrets
 
 class User(models.Model):
     name = models.CharField(max_length=100)
-    email = model.EmailField(unique = true)
+    email = models.EmailField(unique = True)
     password = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
