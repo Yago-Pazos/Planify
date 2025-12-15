@@ -18,3 +18,21 @@ def require_token(view_func):
         return view_func(request, *args, **kwargs)
     wrapped.__name__ = view_func.__name__
     return wrapped
+
+def project_to_dict(project):
+    return{
+        "id": project.id,
+        "name": project.name,
+        "description": project.description,
+        "members": [u.id for u in project.members.all()],
+    }
+def task_to_dict(task):
+    return{
+        "id": task.id,
+        "title": task.title,
+        "description": task.description,
+        "state": task.state,
+        "assigned_to": task.assigned_to.id if task.assigned_to else None,
+        "project_id": task.project.id,
+        "created_at": task.created_at.isoformat() if hasattr(task, 'created_at') else None
+    }
