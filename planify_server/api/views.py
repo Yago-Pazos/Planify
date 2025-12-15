@@ -59,7 +59,6 @@ def login(request):
 
 @csrf_exempt
 @require_token
-
 def task_list(request, project_id):
     project = get_object_or_404(Project, pk = project_id)
 
@@ -153,18 +152,69 @@ def task_detail(request, task_id):
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
 
+def projects_list(request):
+    if request.method == "GET":
+        projects = Project.objects.all()
+        data = [
+            {
+                "id": p.id,
+                "name": p.name,
+                "description": p.description
+            }
+            for p in projects
+        ]
+        return JsonResponse(data, safe=False)
+
+    elif request.method == "POST":
+        try:
+            data = json.loads(request.body)
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Invalid JSON"}, status=400)
+
+        name = data.get("name")
+        description = data.get("description", "")
+
+        if not name:
+            return JsonResponse({"error": "Name is required"}, status=400)
+
+        project = Project.objects.create(name=name, description=description)
+
+        return JsonResponse({
+            "id": project.id,
+            "name": project.name,
+            "description": project.description
+        }, status=201)
+
+    return JsonResponse({"error": "Método no permitido"}, status=405)
 
 
+@csrf_exempt
+def project_detail(request, project_id):
+    try:
+        project = Project.objects.get(id=project_id)
+    except Project.DoesNotExist:
+        return JsonResponse({"error": "Proyecto no encontrado"}, status=404)
 
+    if request.method == "GET":
+        return JsonResponse({
+            "id": project.id,
+            "name": project.name,
+            "description": project.description
+        })
 
+    elif request.method == "PUT":
+        data = json.loads(request.body)
+        project.name = data.get("name", project.name)
+        project.description = data.get("description", project.description)
+        project.save()
+        return JsonResponse({
+            "id": project.id,
+            "name": project.name,
+            "description": project.description
+        })
 
+    elif request.method == "DELETE":
+        project.delete()
+        return JsonResponse({"deleted": True})
 
-
-
-
-
-
-
-
-
-
+    return JsonResponse({"error": "Método no permitido"}, status=405)

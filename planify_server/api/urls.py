@@ -19,7 +19,15 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # Auth
     path('auth/register/', views.register),
     path('auth/login/', views.login),
-]
 
+    # Projects
+    path('proyectos/', views.projects_list),
+    path('proyectos/<int:project_id>/', views.project_detail),
+
+    # Tasks
+    path('proyectos/<int:project_id>/tareas/', views.task_list),
+    path('tareas/<int:task_id>/', views.task_detail),
+]
