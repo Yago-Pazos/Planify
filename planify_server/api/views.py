@@ -190,6 +190,22 @@ def projects_list(request):
 
 @csrf_exempt
 def project_detail(request, project_id):
+    def project_detail(request, project_id):
+        """
+        Endpoint REST para operaciones sobre un proyecto concreto.
+
+        Métodos soportados:
+        - GET: devuelve los datos del proyecto
+        - PUT: actualiza el proyecto
+        - DELETE: elimina el proyecto
+
+        Parámetros:
+        - project_id (int): identificador del proyecto (path param)
+
+        Respuestas:
+        - 200: operación correcta
+        - 404: proyecto no encontrado
+        """
     try:
         project = Project.objects.get(id=project_id)
     except Project.DoesNotExist:

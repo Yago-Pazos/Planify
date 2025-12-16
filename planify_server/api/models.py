@@ -23,11 +23,18 @@ class AuthToken(models.Model):
         return self.key
 
 
-class Project (models.Model):
+class Project(models.Model):
+    """
+    Representa un proyecto de planificación.
+
+    Un proyecto puede tener múltiples tareas asociadas (relación 1:N).
+    """
+
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    members = models.ManyToManyField(User, related_name='projects',blank=True)
+    members = models.ManyToManyField(User, related_name='projects', blank=True)
+
 
     def __str__(self):
         return self.name
