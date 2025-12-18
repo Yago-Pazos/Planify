@@ -11,12 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="40dp" />
 
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:layout_marginBottom="24dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo_card_background"
+        android:elevation="6dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/logo_planify"
+            android:contentDescription="Logo Planify" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tvTitle"
@@ -47,26 +58,39 @@
         android:gravity="center"
         android:layout_marginBottom="40dp" />
 
+    <!-- Botón Iniciar sesión -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar sesión "
+        android:layout_height="48dp"
+        android:minHeight="48dp"
+        android:padding="0dp"
+        android:text="Iniciar sesión"
         android:backgroundTint="#5B4BEB"
         android:textColor="#FFFFFF"
+        android:textSize="15sp"
         android:layout_marginBottom="12dp" />
 
-    <TextView
+    <!-- Card Crear cuenta -->
+    <LinearLayout
         android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Crear cuenta"
-        android:textSize="15sp"
-        android:textColor="#5B4BEB"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:minHeight="48dp"
+        android:background="@drawable/register_card_ripple"
+        android:gravity="center"
+        android:elevation="4dp"
         android:clickable="true"
-        android:focusable="true"
-        android:padding="8dp" />
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear cuenta"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#5B4BEB" />
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Planify">
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true"
             tools:ignore="MissingClass">
             <intent-filter>
