@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,16 +33,18 @@
                 android:textSize="18sp" />
 
             <ImageView
+                android:id="@+id/btnLogout"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_logout"
-                android:contentDescription="Salir" />
+                android:contentDescription="Cerrar sesión" />
         </LinearLayout>
 
+        <!-- SALUDO -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hola, Alex Morgan 👋"
+            android:text="Hola 👋"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginBottom="4dp" />
@@ -53,13 +56,17 @@
             android:textColor="#666666"
             android:layout_marginBottom="20dp" />
 
+        <!-- NUEVO PROYECTO -->
         <Button
+            android:id="@+id/btnNewProject"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="+  Nuevo Proyecto"
+            android:text="+ Nuevo Proyecto"
             android:backgroundTint="#5B4BEB"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="20dp" />
+
+        <!-- BUSCADOR -->
         <EditText
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -68,6 +75,7 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
+        <!-- FILTROS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,6 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Todos"
+                android:textStyle="bold"
                 android:background="@drawable/card_background"
                 android:padding="8dp"
                 android:layout_marginEnd="8dp" />
@@ -96,14 +105,17 @@
                 android:padding="8dp" />
         </LinearLayout>
 
+        <!-- CARD PROYECTO -->
         <LinearLayout
+            android:id="@+id/cardProject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/card_background"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true">
 
-            <!-- Estado -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,7 +124,6 @@
                 android:layout_gravity="end"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Título -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -121,33 +132,19 @@
                 android:textSize="16sp"
                 android:layout_marginBottom="4dp" />
 
-            <!-- Descripción -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Actualización completa de la identidad visual y UX del portal corporativo."
+                android:text="Actualización completa de la identidad visual y UX."
                 android:textColor="#666666"
                 android:layout_marginBottom="12dp" />
-
-            <!-- Progreso -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Progreso"
-                android:textStyle="bold" />
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:progress="65"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="65%"
-                android:layout_gravity="end" />
+                android:progress="65" />
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
