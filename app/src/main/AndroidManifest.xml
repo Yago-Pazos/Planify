@@ -11,16 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Planify">
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+
         <activity
-            android:name=".HomeActivity"
-            android:exported="true"
-            tools:ignore="MissingClass">
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
