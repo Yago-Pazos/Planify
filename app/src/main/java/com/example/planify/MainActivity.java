@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.planify.api.ApiService;
+
 import org.json.JSONArray;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         new Thread(() -> {
             try {
-                JSONArray projects = com.tuapp.planify.api.ApiService.getProjects();
-                Log.d("API_OK", projects.toString());
+                ApiService.createProject(
+                        "Proyecto Android",
+                        "Creado desde la app"
+                );
+                Log.d("API_POST", "Proyecto creado");
             } catch (Exception e) {
-                Log.e("API_ERROR", e.toString());
+                Log.e("API_POST_ERROR", e.toString());
             }
         }).start();
+
 
 
         Button btnLogin = findViewById(R.id.btnLogin);

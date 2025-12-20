@@ -15,7 +15,7 @@
         android:background="@drawable/card_background"
         android:padding="24dp">
 
-        <!-- Título -->
+        <!-- TÍTULO -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="8dp" />
 
-        <!-- Subtítulo -->
+        <!-- SUBTÍTULO -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="24dp" />
 
-        <!-- Nombre -->
+        <!-- NOMBRE -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,6 +43,7 @@
             android:layout_marginBottom="6dp" />
 
         <EditText
+            android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tu nombre"
@@ -50,7 +51,7 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Email -->
+        <!-- EMAIL -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +60,7 @@
             android:layout_marginBottom="6dp" />
 
         <EditText
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="tu@email.com"
@@ -67,7 +69,7 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Contraseña -->
+        <!-- CONTRASEÑA -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,6 +78,7 @@
             android:layout_marginBottom="6dp" />
 
         <EditText
+            android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="••••••••"
@@ -84,7 +87,7 @@
             android:padding="12dp"
             android:layout_marginBottom="24dp" />
 
-        <!-- BOTÓN REGISTRARSE -->
+        <!-- BOTÓN REGISTRAR -->
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
@@ -103,8 +106,8 @@
             android:text="Inicia sesión"
             android:textColor="#5B4BEB"
             android:clickable="true"
-            android:focusable="true" />
-
+            android:focusable="true"
+            android:layout_gravity="center" />
 
     </LinearLayout>
 </LinearLayout>
