@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Planify</string>
+
+    <string-array name="task_status">
+        <item>To Do</item>
+        <item>En curso</item>
+        <item>Completada</item>
+    </string-array>
+
+    <string-array name="task_assignees">
+        <item>Sin asignar</item>
+        <item>Alex</item>
+        <item>Sara</item>
+    </string-array>
+
 </resources>
