@@ -18,10 +18,22 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     TextView tvGoToRegister;
 
+    // 🔹 Declaramos session aquí
+    SessionManager session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // 🔹 La inicializamos UNA sola vez
+        session = new SessionManager(this);
+
+        if (session.isLoggedIn()) {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+            return;
+        }
 
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
@@ -40,11 +52,13 @@ public class LoginActivity extends AppCompatActivity {
 
             new Thread(() -> {
                 try {
-                    // usamos email como username
                     boolean success = ApiService.login(email, password);
 
                     runOnUiThread(() -> {
                         if (success) {
+                            // 🔹 Usamos la MISMA variable session
+                            session.login(email);
+
                             Toast.makeText(this, "Login correcto", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(this, HomeActivity.class));
                             finish();

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.planify">
-    <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:usesCleartextTraffic="true"
@@ -13,23 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Planify">
 
-
-
-    <!-- DETALLE DE PROYECTO -->
-        <activity android:name=".ProjectDetailActivity" />
-
-        <!-- HOME -->
-        <activity android:name=".HomeActivity" />
-
-        <!-- REGISTER -->
-        <activity android:name=".RegisterActivity" />
-
-        <!-- LOGIN -->
-        <activity android:name=".LoginActivity" />
-
-        <!-- WELCOME (MAIN) -->
+        <!-- LOGIN (LAUNCHER) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
 
             <intent-filter>
@@ -38,6 +24,18 @@
             </intent-filter>
 
         </activity>
+
+        <!-- REGISTER -->
+        <activity android:name=".RegisterActivity" />
+
+        <!-- HOME -->
+        <activity android:name=".HomeActivity" />
+
+        <!-- DETALLE DE PROYECTO -->
+        <activity android:name=".ProjectDetailActivity" />
+
+        <!-- WELCOME -->
+        <activity android:name=".MainActivity" />
 
     </application>
 
